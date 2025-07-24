@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Rolling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎲 Dice Rolling Master 🎲</h1>
+            <p>Roll dice, play games, and test your luck!</p>
+        </header>
+
+        <main>
+            <!-- Dice Configuration -->
+            <section class="config-section">
+                <h2>Dice Configuration</h2>
+                <div class="config-grid">
+                    <div class="config-item">
+                        <label for="diceType">Dice Type:</label>
+                        <select id="diceType">
+                            <option value="6">D6 (1-6)</option>
+                            <option value="4">D4 (1-4)</option>
+                            <option value="8">D8 (1-8)</option>
+                            <option value="10">D10 (1-10)</option>
+                            <option value="12">D12 (1-12)</option>
+                            <option value="20">D20 (1-20)</option>
+                            <option value="100">D100 (1-100)</option>
+                        </select>
+                    </div>
+                    <div class="config-item">
+                        <label for="numDice">Number of Dice:</label>
+                        <input type="number" id="numDice" min="1" max="10" value="2">
+                    </div>
+                    <div class="config-item">
+                        <label for="modifier">Modifier:</label>
+                        <input type="number" id="modifier" value="0" placeholder="±0">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dice Display -->
+            <section class="dice-section">
+                <div id="diceContainer" class="dice-container"></div>
+                <button id="rollBtn" class="roll-btn">Roll Dice!</button>
+            </section>
+
+            <!-- Results -->
+            <section class="results-section">
+                <div class="result-display">
+                    <div class="result-item">
+                        <span class="label">Individual Rolls:</span>
+                        <span id="individualRolls" class="value">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">Total:</span>
+                        <span id="totalResult" class="value total">-</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="label">With Modifier:</span>
+                        <span id="finalResult" class="value final">-</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Statistics -->
+            <section class="stats-section">
+                <h3>Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-label">Rolls Made:</span>
+                        <span id="rollCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Average Roll:</span>
+                        <span id="averageRoll" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Highest Roll:</span>
+                        <span id="highestRoll" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Lowest Roll:</span>
+                        <span id="lowestRoll" class="stat-value">0</span>
+                    </div>
+                </div>
+                <button id="resetStats" class="reset-btn">Reset Statistics</button>
+            </section>
+
+            <!-- Roll History -->
+            <section class="history-section">
+                <h3>Roll History</h3>
+                <div id="rollHistory" class="roll-history"></div>
+                <button id="clearHistory" class="clear-btn">Clear History</button>
+            </section>
+
+            <!-- Games -->
+            <section class="games-section">
+                <h3>Dice Games</h3>
+                <div class="games-grid">
+                    <div class="game-card">
+                        <h4>Yahtzee Style</h4>
+                        <p>Roll 5 dice and try to get matching combinations!</p>
+                        <button id="yahtzeeBtn" class="game-btn">Play Yahtzee</button>
+                        <div id="yahtzeeResult" class="game-result"></div>
+                    </div>
+                    <div class="game-card">
+                        <h4>High-Low Guess</h4>
+                        <p>Guess if the next roll will be higher or lower!</p>
+                        <div id="guessGame" class="guess-game">
+                            <div id="currentGuessRoll" class="current-roll">Roll to start!</div>
+                            <div class="guess-buttons">
+                                <button id="guessHigher" class="guess-btn">Next Higher</button>
+                                <button id="guessLower" class="guess-btn">Next Lower</button>
+                            </div>
+                            <div id="guessScore" class="guess-score">Score: 0</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="dice.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

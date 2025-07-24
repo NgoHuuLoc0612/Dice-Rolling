@@ -1,0 +1,411 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+header p {
+    font-size: 1.1rem;
+    color: #666;
+}
+
+/* Sections */
+section {
+    background: rgba(255, 255, 255, 0.95);
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+section h2, section h3 {
+    margin-bottom: 20px;
+    color: #4a5568;
+    text-align: center;
+}
+
+/* Configuration Section */
+.config-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.config-item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.config-item label {
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.config-item select,
+.config-item input {
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.config-item select:focus,
+.config-item input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Dice Section */
+.dice-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 30px;
+    min-height: 120px;
+    align-items: center;
+}
+
+.dice {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #ff6b6b, #feca57);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dice:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.dice.rolling {
+    animation: rollAnimation 1s ease-in-out;
+}
+
+@keyframes rollAnimation {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(0.9); }
+    75% { transform: rotate(270deg) scale(1.1); }
+}
+
+/* Buttons */
+.roll-btn, .game-btn, .guess-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+.roll-btn {
+    display: block;
+    margin: 0 auto;
+    font-size: 1.3rem;
+    padding: 18px 40px;
+}
+
+.roll-btn:hover, .game-btn:hover, .guess-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+}
+
+.roll-btn:active, .game-btn:active, .guess-btn:active {
+    transform: translateY(-1px);
+}
+
+.reset-btn, .clear-btn {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.reset-btn:hover, .clear-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Results Section */
+.result-display {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.result-item {
+    background: rgba(102, 126, 234, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.result-item .label {
+    display: block;
+    font-weight: 600;
+    color: #4a5568;
+    margin-bottom: 8px;
+}
+
+.result-item .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.result-item .value.total {
+    color: #48bb78;
+    font-size: 1.8rem;
+}
+
+.result-item .value.final {
+    color: #ed8936;
+    font-size: 1.8rem;
+}
+
+/* Statistics Section */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: rgba(72, 187, 120, 0.1);
+    border-radius: 10px;
+    border: 2px solid rgba(72, 187, 120, 0.2);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #4a5568;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #48bb78;
+}
+
+/* History Section */
+.roll-history {
+    max-height: 200px;
+    overflow-y: auto;
+    background: #f7fafc;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #e2e8f0;
+}
+
+.history-item {
+    padding: 8px 12px;
+    margin-bottom: 8px;
+    background: white;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: monospace;
+}
+
+.history-item:last-child {
+    margin-bottom: 0;
+}
+
+/* Games Section */
+.games-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.game-card {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 12px;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    text-align: center;
+}
+
+.game-card h4 {
+    color: #4a5568;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.game-card p {
+    color: #718096;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.game-result {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(72, 187, 120, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(72, 187, 120, 0.3);
+    font-weight: 600;
+    color: #48bb78;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Guess Game */
+.guess-game {
+    text-align: center;
+}
+
+.current-roll {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #667eea;
+    margin: 15px 0;
+    padding: 20px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 12px;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+}
+
+.guess-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 15px 0;
+}
+
+.guess-score {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #48bb78;
+    padding: 10px;
+    background: rgba(72, 187, 120, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(72, 187, 120, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .dice {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .config-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .result-display {
+        grid-template-columns: 1fr;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .games-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .guess-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Animations */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.bounce-in {
+    animation: bounceIn 0.6s ease-out;
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.3); opacity: 0; }
+    50% { transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); opacity: 1; }
+}
