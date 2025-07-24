@@ -6,7 +6,6 @@ Dice Rolling Master is a comprehensive web-based dice simulation application tha
 
 ## Table of Contents
 
-- [Abstract](#abstract)
 - [Introduction](#introduction)
 - [System Architecture](#system-architecture)
 - [Features](#features)
